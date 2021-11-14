@@ -42,6 +42,7 @@ function check {
 check
 
 # UPDATE AND UPGRADE SYSTEM # ----------------------------------------------------------------------------------------------------------------------------- #
+echo -e "Updating system"
 apt-get update
 apt-get -y dist-upgrade
 apt -y autoremove
@@ -49,6 +50,7 @@ apt-get -y -f install
 apt-get clean
 apt-get install -y net-tools curl wget ca-certificates curl openssh-server postfix
 apt-get install -y lsb-release &> /dev/null
+clear
 # --------------------------------------------------------------------------------------------------------------------------------------------------------- #
 
 
@@ -69,11 +71,11 @@ echo -e "nameserver 185.51.200.2\nnameserver 178.22.122.100" > /etc/resolv.conf
 # --------------------------------------------------------------------------------------------------------------------------------------------------------- #
 
 # SHOW WELLCOMMING MESSAGE
-echo -e "Hello $USER\n This is Gitlab_ce installer " | cowsay -f tux
+echo -e "Hello $USER\n This is Gitlab_CE installer " | cowsay -f tux
 # ----------------------------------------------------------------------------------------------------------------------------------------------------------#
 
 # DOWNLOAD INSTALLER FROM GITLAB REPOSITORY
-curl -LO $proxy_address
+cd /tmp ; curl -LO $proxy_address
 # ----------------------------------------------------------------------------------------------------------------------------------------------------------#
 
 # RUN THE INSTALLER
